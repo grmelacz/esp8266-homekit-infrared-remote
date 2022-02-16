@@ -22,7 +22,7 @@ This sketch has 3 switches implemented as an example:
 
 ## Function explanation
 
-I'm using the Wemos D1 module with an infrared trasmitter module inside a cool box that my work colleague Jirka have printed for me. The module lays nearby a Genius speaker set that I'm able to turn on and off + control volume (*this may be implemented as a speaker accessory in the future, but it works as it is).
+I'm using the Wemos D1 module with an infrared trasmitter module inside a cool box that my work colleague Jirka have printed for me. The module lays nearby a Genius speaker set that I'm able to turn on and off + control volume (*this may be implemented as a speaker accessory in the future, but it works as it is*).
 
 ### The auto turn-off feature
 
