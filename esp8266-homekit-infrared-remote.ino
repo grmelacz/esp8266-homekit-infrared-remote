@@ -30,7 +30,7 @@
 // confirmation LED blink & connected clients log interval
 #define BLINK_INTERVAL 1000*10 // 10 seconds
 // how long should the stateful switch stay enabled
-#define TURN_OFF_AFTER_MILLISECONDS 1000*300 // 10 mins
+#define TURN_OFF_AFTER_MILLISECONDS 1000*600 // 10 mins
 
 /* GLOBAL VARS */
 #define LOG_D(fmt, ...)   printf_P(PSTR(fmt "\n") , ##__VA_ARGS__);
