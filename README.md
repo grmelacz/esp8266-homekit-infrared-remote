@@ -9,7 +9,7 @@ This sketch has 3 switches implemented as an example:
 - One stateful switch that turns itself off after 10 minutes
 - Two stateless (momentary) switches
 
-*Note: As there is no push button (momentary) switch supported in HomeKit, the statless switches turn off immediately once they're triggered.*
+*Note: As there is no push button (momentary) switch supported in HomeKit, the stateless switches turn off immediately once they're triggered.*
 
 ## How to get it up & running
 
@@ -26,7 +26,7 @@ I'm using the Wemos D1 module with an infrared trasmitter module inside a cool b
 
 ### The auto turn-off feature
 
-The auto turn-off function is needed as there is currently (as of 2/2022) no easy way to read the Apple TV status (whether it is on or off) and use that to turn the speakers on or off too. But once my TV is turned on, I may use the fact it's USB port is powered. This way I'm able to create a HomeKit sensor that gets triggered once the ESP module boots up & each 8 minutes. With a bit of HomeKit automation, I'm able to trigger the Remote module once the TV sensor is triggered to keep it on. And once the power from use TV USB goes away, the speakers are automatically turned off after 10 minutes of inactivity.
+The auto turn-off function is needed as there is currently (as of 2/2022) no easy way to read the Apple TV status (whether it is on or off) and use that to turn the speakers on or off too. But once my TV is turned on, I may use the fact it's USB port is powered. This way I'm able to create a HomeKit sensor (see the [esp8266-homekit-watchdog](https://github.com/grmelacz/esp8266-homekit-watchdog) project) that gets triggered once the ESP module boots up & each 8 minutes. With a bit of HomeKit automation, I'm able to trigger the Remote module once the TV sensor is triggered to keep it on. And once the power from use TV USB goes away, the speakers are automatically turned off after 10 minutes of inactivity.
 
 ## Some images
 
