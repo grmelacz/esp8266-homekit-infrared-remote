@@ -2,7 +2,7 @@
  * ESP8266 HomeKit Infrared Remote Blaster
  * By Jan Grmela <grmela@gmail.com> in 2022
  * License: GPL v3 or newer
- * Version: 1.0
+ * Version: 1.1
  * 
  * Based on Arduino-HomeKit-ESP8266 examples by Mixiaoxiao (Wang Bin)
  * and IRremoteESP8266 examples by crankyoldgit (David Conran)
@@ -138,15 +138,25 @@ void my_homekit_setup() {
 void my_homekit_loop() {
   arduino_homekit_loop();
   const uint32_t t = millis();
-
-  // Periodic LED blink & heap info
+  
+  // periodic LED blink & heap info
   if (t > next_heap_millis) {
-    blink_led();
+    if(WiFi.status() != WL_CONNECTED) {
+      // WiFi error: blink 2 times
+      blink_led();
+      blink_led();
+    }
+    else {
+      // WiFi OK: blink 1 time
+       blink_led();
+    }
+
     next_heap_millis = t + BLINK_INTERVAL;
     LOG_D("Free heap: %d, HomeKit clients: %d", ESP.getFreeHeap(), arduino_homekit_connected_clients_count());
     if(cha_switch_on.value.bool_value) {
       LOG_D("Remaining %d secs before turning off switch 1", (next_switch_off_millis - t)/1000);
     }
+    MDNS.announce(); // fix random connection loss https://github.com/Mixiaoxiao/Arduino-HomeKit-ESP8266/issues/9
   }
 
   // automatically turn off the switch after
